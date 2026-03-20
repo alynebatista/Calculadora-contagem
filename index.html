@@ -266,6 +266,21 @@
                 const current = parseFloat(card.querySelector('.item-current').value) || 0;
                 const resBox = card.querySelector('.result-box');
 
+                // 🚫 Se não houver cubas iniciais
+                if (initial <= 0) {
+                    resBox.innerText = "Informe cubas iniciais para calcular";
+                    resBox.className = "result-box p-4 rounded-2xl text-center font-bold text-sm bg-slate-50 text-slate-400 border-slate-100";
+                    return;
+                }
+                
+                // 🚫 Se ainda não houve consumo
+                const consumidoTemp = initial - current;
+                if (consumidoTemp <= 0) {
+                    resBox.innerText = "Sem consumo ainda para prever";
+                    resBox.className = "result-box p-4 rounded-2xl text-center font-bold text-sm bg-slate-50 text-slate-400 border-slate-100";
+                    return;
+                }
+
                 if (elapsedMin <= 0) {
                     resBox.innerText = "Aguarde a distribuição iniciar";
                     resBox.className = "result-box p-4 rounded-2xl text-center font-bold text-sm bg-slate-50 text-slate-400 border-slate-100";
