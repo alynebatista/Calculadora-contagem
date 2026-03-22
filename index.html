@@ -297,8 +297,8 @@
                 if (saldoFinal < -0.1) {
                     resBox.innerText = `🚨 ALERTA: Vão faltar ~${saldoAbs} cubas!`;
                     resBox.className = "result-box p-4 rounded-2xl text-center font-bold text-sm bg-red-50 text-red-600 border-red-100";
-                } else if (saldoFinal <= 1.5) {
-                    resBox.innerText = `⚠️ ATENÇÃO: Quantidade exata (${saldoAbs}), sem margem!`;
+                } else if (saldoFinal <= 0.5) {
+                    resBox.innerText = `⚠️ ATENÇÃO: Quantidade exata. Sobra de (${saldoAbs})!`;
                     resBox.className = "result-box p-4 rounded-2xl text-center font-bold text-sm bg-amber-50 text-amber-600 border-amber-100";
                 } else {
                     resBox.innerText = `✅ SEGURO: Previsão de sobra de ~${saldoAbs} cubas.`;
