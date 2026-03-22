@@ -106,9 +106,9 @@
                 <span class="text-xl">＋</span> Adicionar Alimento
             </button>
             
-            <button onclick="if(confirm('Limpar todas as preparações?')) { document.getElementById('itemsList').innerHTML = ''; updateAll(); }" 
+            <button onclick="if(confirm('Limpar todas as preparações?')) limparListaCompleta();"  
                     class="w-full py-3 text-slate-400 text-xs font-bold hover:text-red-500 transition-colors">
-                Limpar Lista Completa
+                Limpar tudo
             </button>
         </div>
 
@@ -310,6 +310,26 @@
             saveState();
         }
 
+        function limparListaCompleta() {
+
+            // Limpa os itens
+            document.getElementById('itemsList').innerHTML = '';
+
+            // Zera duração total
+            document.getElementById('totalH').value = 0;
+            document.getElementById('totalM').value = 0;
+
+            // Zera tempo decorrido
+            document.getElementById('elapsedH').value = 0;
+            document.getElementById('elapsedM').value = 0;
+
+            // Limpa dados salvos
+            localStorage.removeItem('appState');
+
+            // Atualiza tudo (barra, textos, etc.)
+            updateAll();
+        }
+
         function startTime() {
             const now = new Date();
             const clock = document.getElementById('clock-display');
@@ -320,6 +340,7 @@
             }
             setTimeout(startTime, 1000);
         }
+
 
         // 🚀 INICIALIZAÇÃO CORRETA
         window.onload = function() {
